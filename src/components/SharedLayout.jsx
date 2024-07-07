@@ -1,0 +1,12 @@
+import { Outlet } from "react-router-dom";
+
+export const SharedLayout = () => {
+    return(
+        <Container>
+            <Header>
+
+            </Header>
+            <Outlet/>
+        </Container>
+    )
+}
