@@ -9,6 +9,15 @@ const MovieDetails = () =>{
     const[movie, setMovie] = useState(null);
     const navigate = useNavigate();
 
+    const buttonStyle = {
+        backgroundColor: 'grey',
+        color: 'white',
+        padding: '10px',
+        border: 'none',
+        cursor: 'pointer',
+        borderRadius: '5px',
+      };
+
     useEffect(() => {
         const fetchData = async() =>{
             try{
@@ -25,7 +34,7 @@ const MovieDetails = () =>{
 
     return(
         <div>
-             <button onClick={() => navigate('/movies')}>Back to Movies</button>
+             <button style={buttonStyle} onClick={() => navigate('/movies')}>Back to Movies</button>
             <div className={styles.movieDetails}>
                 <div>
                     <img className={styles.poster} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />

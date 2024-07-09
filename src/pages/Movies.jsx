@@ -7,6 +7,14 @@ const Movies = () =>{
     const[query, setQuery] = useState('');
     const[movies, setMovies] = useState([]);
     const navigate = useNavigate();
+    const buttonStyle = {
+        backgroundColor: 'grey',
+        color: 'white',
+        padding: '10px',
+        border: 'none',
+        cursor: 'pointer',
+        borderRadius: '5px',
+      };
 
         const handleSearch = async() =>{
             try{
@@ -19,7 +27,7 @@ const Movies = () =>{
     
     return (
         <div>
-            <button onClick={()=> navigate('/')}>Go Back</button>
+            <button style={buttonStyle} onClick={()=> navigate('/')}>Go Back</button>
           <h1>Search Movies</h1>
             <input 
               type="text" 

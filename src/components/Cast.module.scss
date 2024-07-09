@@ -1,0 +1,12 @@
+.castList{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 15px;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.actorImg{
+    width: auto;
+    height: 200px;
+}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams} from "react-router-dom";
 import { getMovieCredits  } from "../api";
 import PropTypes from 'prop-types';
+import styles from "./Cast.module.scss"
 
 const Cast = () => {
     const{movieId} = useParams();
@@ -22,10 +23,10 @@ const Cast = () => {
     return(
         <div>
             <h2>Cast</h2>
-            <ul>
+            <ul className={styles.castList}>
             {cast.map(member =>(
                 <li key={member.cast_id}>
-                    <img style={'height=150, width=auto'} src={`https://image.tmdb.org/t/p/w200${member.profile_path}`} alt={member.name}/>
+                    <img className={styles.actorImg} src={`https://image.tmdb.org/t/p/w200${member.profile_path}`} alt={member.name}/>
                     {member.name} as {member.character}
                 </li>
             ))}
