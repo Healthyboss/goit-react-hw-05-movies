@@ -8,3 +8,38 @@ body {
     max-width: 100%;
     height: auto;
   }
+
+  h1, h2 {
+    color: #333;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 5px 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #007BFF;
+  }
+
+  a.active {
+    color: orange;
+  }
+  
+  a:hover {
+    color: orange;
+    text-decoration: underline;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  nav {
+    margin-top: 20px;
+  }
