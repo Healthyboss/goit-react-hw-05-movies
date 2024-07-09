@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams} from "react-router-dom";
 import { getMovieReviews  } from "../api";
+import PropTypes from 'prop-types';
 
 const Rewievs =()=>{
     const{movieId} = useParams();
@@ -8,8 +9,12 @@ const Rewievs =()=>{
 
     useEffect(()=>{
         const fetchData = async() => {
+            try{
             const reviewsData = await getMovieReviews(movieId);
             setReviews(reviewsData);
+            } catch (error) {
+                console.error('Error fetching movie reviews:', error);
+            }
         };
         fetchData();
     }, [movieId]);
@@ -28,5 +33,13 @@ const Rewievs =()=>{
         </div>
     );
 };
+
+Reviews.propTypes = {
+    reviews: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+    }))
+  };
 
 export default Rewievs;

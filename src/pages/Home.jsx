@@ -8,9 +8,13 @@ const Home = () => {
 
     useEffect(()=>{
         const fetchData = async()=>{
+            try {
             const getTrendingMovies = await trendingMovies();
             setMovies(getTrendingMovies);
-        }
+            } catch (error) {
+                console.error('Error fetching movie details:', error);
+              }
+        };
         fetchData();
     },[])
 
@@ -30,8 +34,8 @@ const Home = () => {
 
 Home.propTypes = {
     movies: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-      itle: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
     }))
   };
 

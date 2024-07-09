@@ -1,15 +1,19 @@
 import { useState} from "react";
 import { searchMovies } from "../api";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const Movies = () =>{
     const[query, setQuery] = useState('');
     const[movies, setMovies] = useState([]);
 
         const handleSearch = async(event) =>{
-            event.preventDefault();
-            const results = await searchMovies(query);
-            setMovies(results);
+            try{event.preventDefault();
+                const results = await searchMovies(query);
+                setMovies(results);
+            } catch (error) {
+              console.error('Error searching movies:', error);}
+            
         };
     
     return (
@@ -35,4 +39,11 @@ const Movies = () =>{
       );
     };
     
+    Movies.propTypes = {
+        movies: PropTypes.arrayOf(PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            title: PropTypes.string.isRequired,
+        }))
+      };
+      
     export default Movies;
