@@ -18,6 +18,7 @@ const Movies = () =>{
     
     return (
         <div>
+            <Link to="/">Go Back</Link>
           <h1>Search Movies</h1>
             <input 
               type="text" 

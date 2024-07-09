@@ -40,7 +40,7 @@ MovieDetails.propTypes = {
       title: PropTypes.string,
       overview: PropTypes.string
     }),
-    movieId: PropTypes.string.isRequired
+    movieId: PropTypes.string
   };
 
 export default MovieDetails;
