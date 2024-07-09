@@ -1,0 +1,25 @@
+.filmInfo{
+    display: flex;
+    flex-direction: column;
+}
+
+.poster{
+    height: 250px;
+    width: auto;
+    margin-top: 30px;
+}
+
+.addInfo{
+    margin-top: 40px;
+    letter-spacing: 0.15rem;
+    column-gap: 10rem;
+}
+
+.movieDetails{
+    margin:auto;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: nowrap;
+    align-content: center;
+
+}

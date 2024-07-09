@@ -23,8 +23,11 @@ const Cast = () => {
         <div>
             <h2>Cast</h2>
             <ul>
-            {cast.map(memeber =>(
-                <li key={memeber.cast_id}>{memeber.name} as {memeber.character}</li>
+            {cast.map(member =>(
+                <li key={member.cast_id}>
+                    <img style={'height=150, width=auto'} src={`https://image.tmdb.org/t/p/w200${member.profile_path}`} alt={member.name}/>
+                    {member.name} as {member.character}
+                </li>
             ))}
             </ul>
         </div>

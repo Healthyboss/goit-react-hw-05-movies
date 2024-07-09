@@ -1,11 +1,12 @@
 import { useState} from "react";
 import { searchMovies } from "../api";
-import { Link } from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 
 const Movies = () =>{
     const[query, setQuery] = useState('');
     const[movies, setMovies] = useState([]);
+    const navigate = useNavigate();
 
         const handleSearch = async() =>{
             try{
@@ -18,7 +19,7 @@ const Movies = () =>{
     
     return (
         <div>
-            <Link to="/">Go Back</Link>
+            <button onClick={()=> navigate('/')}>Go Back</button>
           <h1>Search Movies</h1>
             <input 
               type="text" 

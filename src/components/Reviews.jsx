@@ -3,7 +3,7 @@ import { useParams} from "react-router-dom";
 import { getMovieReviews  } from "../api";
 import PropTypes from 'prop-types';
 
-const Rewievs =()=>{
+const Reviews =()=>{
     const{movieId} = useParams();
     const[reviews, setReviews] =useState([]);
 
@@ -22,6 +22,10 @@ const Rewievs =()=>{
     return(
         <div>
             <h2>Reviews</h2>
+            {reviews.length === 0 ? (
+        <p>No reviews available.</p>
+      ) : (
+            
             <ul>
             {reviews.map(review=>(
                 <li key={review.id}>
@@ -29,8 +33,9 @@ const Rewievs =()=>{
                     <p>{review.content}</p>
                 </li>
             ))}
-            </ul>
-        </div>
+        </ul>
+      )}
+        </div> 
     );
 };
 
@@ -42,4 +47,4 @@ Reviews.propTypes = {
     }))
   };
 
-export default Rewievs;
+export default Reviews;
