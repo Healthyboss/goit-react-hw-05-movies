@@ -7,11 +7,11 @@ const MovieDetails = () =>{
     const{movieId} = useParams();
     const[movie, setMovie] = useState(null);
 
-    useEffect(()=>{
+    useEffect(() => {
         const fetchData = async() =>{
             try{
-            const movieData = await movieDetails(movieId);
-            setMovie(movieData);
+            const data = await movieDetails(movieId);
+            setMovie(data.results);
             }catch (error) {
                 console.error('Error fetching movie details:', error);
               }
@@ -26,8 +26,8 @@ const MovieDetails = () =>{
             <h1>{movie.title}</h1>
             <p>{movie.overview}</p>
             <nav>
-                <Link to="cast">Cast</Link>
-                <Link to="reviews">Reviews</Link>
+                <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+                <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
             </nav>
             <Outlet/>
         </div>

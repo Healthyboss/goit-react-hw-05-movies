@@ -9,8 +9,8 @@ const Home = () => {
     useEffect(()=>{
         const fetchData = async()=>{
             try {
-            const getTrendingMovies = await trendingMovies();
-            setMovies(getTrendingMovies);
+            const data = await trendingMovies();
+            setMovies(data.results);
             } catch (error) {
                 console.error('Error fetching movie details:', error);
               }

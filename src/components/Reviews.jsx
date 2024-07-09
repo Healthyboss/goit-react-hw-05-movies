@@ -10,8 +10,8 @@ const Rewievs =()=>{
     useEffect(()=>{
         const fetchData = async() => {
             try{
-            const reviewsData = await getMovieReviews(movieId);
-            setReviews(reviewsData);
+            const data = await getMovieReviews(movieId);
+            setReviews(data.results);
             } catch (error) {
                 console.error('Error fetching movie reviews:', error);
             }

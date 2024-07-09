@@ -7,10 +7,10 @@ const Movies = () =>{
     const[query, setQuery] = useState('');
     const[movies, setMovies] = useState([]);
 
-        const handleSearch = async(event) =>{
-            try{event.preventDefault();
-                const results = await searchMovies(query);
-                setMovies(results);
+        const handleSearch = async() =>{
+            try{
+                const data = await searchMovies(query);
+                setMovies(data.results);
             } catch (error) {
               console.error('Error searching movies:', error);}
             
@@ -19,15 +19,14 @@ const Movies = () =>{
     return (
         <div>
           <h1>Search Movies</h1>
-          <form onSubmit={handleSearch}>
             <input 
               type="text" 
               value={query} 
               onChange={(event) => setQuery(event.target.value)} 
               placeholder="Search for a movie"
             />
-            <button type="submit">Search</button>
-          </form>
+            <button onClick={handleSearch}>Search</button>
+          
           <ul>
             {movies.map(movie => (
               <li key={movie.id}>
